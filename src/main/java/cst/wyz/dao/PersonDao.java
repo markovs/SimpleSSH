@@ -8,7 +8,7 @@ public interface PersonDao {
 
     Person getById(String id);
 
-    List<Person> list();
+    List list();
 
     void add(Person person);
 

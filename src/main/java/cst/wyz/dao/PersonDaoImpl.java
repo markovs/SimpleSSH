@@ -3,17 +3,12 @@ package cst.wyz.dao;
 import cst.wyz.entity.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
-import javax.persistence.Query;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 import java.util.List;
-import java.util.Queue;
 
+@Repository
 public class PersonDaoImpl implements PersonDao{
 
     @Resource
@@ -30,21 +25,21 @@ public class PersonDaoImpl implements PersonDao{
 
     @Override
     public List<Person> list() {
-        return null;
+        return (List<Person>) getSession().createCriteria(Person.class).list();
     }
 
     @Override
     public void add(Person person) {
-
+        getSession().save(person);
     }
 
     @Override
     public void update(Person person) {
-
+        getSession().update(person);
     }
 
     @Override
     public void delete(String id) {
-
+        getSession().delete(getById(id));
     }
 }

@@ -1,7 +1,8 @@
 package cst.wyz.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "person")
@@ -15,6 +16,10 @@ public class Person {
 
     private String phone;
 
+    @Id
+    @Column(name = "p_id",nullable = false,unique = true)
+    @GenericGenerator(name = "genarator",strategy = "uuid")
+    @GeneratedValue(generator = "genarator")
     public String getId() {
         return id;
     }
@@ -23,6 +28,7 @@ public class Person {
         this.id = id;
     }
 
+    @Column(name = "p_name",nullable = false)
     public String getName() {
         return name;
     }
@@ -31,6 +37,7 @@ public class Person {
         this.name = name;
     }
 
+    @Column(name = "p_age")
     public int getAge() {
         return age;
     }
@@ -39,6 +46,7 @@ public class Person {
         this.age = age;
     }
 
+    @Column(name = "p_phone")
     public String getPhone() {
         return phone;
     }
