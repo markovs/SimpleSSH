@@ -1,3 +1,6 @@
+##项目说明
+基于 Spring + SpringMVC + Hibernate 框架实现简单的人员信息管理<br>
+
 ## 项目结构
 
 - main 项目主文件夹<br>
