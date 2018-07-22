@@ -16,6 +16,21 @@ public class Person {
 
     private String phone;
 
+    public Person(){}
+
+    public Person(String id, String name, int age, String phone){
+        this.id = id;
+        this.age = age;
+        this.name = name;
+        this.phone = phone;
+    }
+
+    public Person(String name, int age, String phone){
+        this.age = age;
+        this.name = name;
+        this.phone = phone;
+    }
+
     @Id
     @Column(name = "p_id",nullable = false,unique = true)
     @GenericGenerator(name = "genarator",strategy = "uuid")

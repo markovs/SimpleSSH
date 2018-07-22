@@ -20,7 +20,7 @@ public class PersonDaoImpl implements PersonDao{
 
     @Override
     public Person getById(String id) {
-        return (Person) getSession().get(Person.class.getSimpleName(),id);
+        return (Person) getSession().get(Person.class,id);
     }
 
     @Override
