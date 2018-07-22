@@ -4,6 +4,7 @@ import cst.wyz.entity.Person;
 import cst.wyz.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -27,7 +28,8 @@ public class PersonController {
     }
 
     @RequestMapping("/add")
-    public String add(Person person){
+    public String add(@RequestBody Person person){
+        System.out.println(person);
         personService.add(person);
         return "list";
     }
